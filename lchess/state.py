@@ -35,8 +35,11 @@ class State(object):
                 assert bstate[self.board.ep_square] == 0
                 bstate[self.board.ep_square] = 8
         bstate = bstate.reshape(8,8)
+
+        #binary state
         state = np.zeroes((8,8,5), np.uint8)
         
+        #0-3 columns to binary
         state[:,:,0] = (bstate>>3)&1
         state[:,:,1] = (bstate>>2)&1
         state[:,:,2] = (bstate>>1)&1
@@ -52,10 +55,11 @@ class State(object):
     
     def value(self):
         #TO DO add neural network here
-        return 0
+        return 1
 
 
 if __name__ =="__main__":
     s = State()
-    print(s.edges)
+    #print(s.edges)
+    print(s.serialize())
 
