@@ -1,2 +1,3 @@
 script
-lchess/data
+lchess/data/
+lchess/processed/
